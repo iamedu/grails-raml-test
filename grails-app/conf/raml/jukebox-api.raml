@@ -200,3 +200,14 @@ traits:
         is: [orderable: {fieldsList: "songTitle"}]
         description: Get the list of songs for the album with `albumId = {albumId}`
 
+/auth:
+  /login:
+    displayName: Authorization Login
+    post:
+      description: "Login to the application"
+      body:
+        application/json:
+      responses:
+        200:
+          body:
+            application/json:
