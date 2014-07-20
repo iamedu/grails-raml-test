@@ -22,6 +22,7 @@ grails.project.fork = [
 ]
 
 grails.plugin.location.'raml-api' = "../raml-api"
+grails.plugin.location.'raml-api-shiro-security' = "../raml-api-shiro-security"
 
 grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
