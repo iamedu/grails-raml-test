@@ -124,12 +124,12 @@ iamedu.raml.serveExamples = true
 iamedu.raml.security.publicUrls = ['/api/auth/**/**']
 
 iamedu.raml.security.shiro.userClass = 'iamedu.music.domain.User'
-iamedu.raml.security.shiro.usernameField = 'username'
-iamedu.raml.security.shiro.passwordField = 'password'
-iamedu.raml.security.shiro.permissionsField = 'permissions'
-iamedu.raml.security.shiro.rolesField = 'roles'
+// iamedu.raml.security.shiro.usernameField = 'username'
+// iamedu.raml.security.shiro.passwordField = 'password'
+// iamedu.raml.security.shiro.permissionsField = 'permissions'
+// iamedu.raml.security.shiro.rolesField = 'roles'
 
 iamedu.raml.security.shiro.roleClass = 'iamedu.music.domain.Role'
-iamedu.raml.security.shiro.roleNameField = 'name'
-iamedu.raml.security.shiro.rolePermissionField = 'permissions'
+// iamedu.raml.security.shiro.roleNameField = 'name'
+// iamedu.raml.security.shiro.rolePermissionField = 'permissions'
 
