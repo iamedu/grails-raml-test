@@ -24,22 +24,14 @@ class AuthorizationLoginService {
 
   def handleInvalidUsername(UnknownAccountException ex) {
     RamlResponse.create().statusCode(403).body([
-      hola: 'Usuario invalido',
+      error: 'invalidUsername',
       message: ex.message
     ])
   }
 
-  // def handleInvalidPassword(IncorrectCredentialsException ex) {
-  //   RamlResponse.create().statusCode(403).body([
-  //     hola: 'Password invalido',
-  //     message: ex.message
-  //   ])
-  // }
-
-  def handleEverything(org.apache.shiro.authc.AuthenticationException ex) {
-    println ex
+  def handleInvalidPassword(IncorrectCredentialsException ex) {
     RamlResponse.create().statusCode(403).body([
-      hola: 'No se',
+      error: 'invalidPassword',
       message: ex.message
     ])
   }
