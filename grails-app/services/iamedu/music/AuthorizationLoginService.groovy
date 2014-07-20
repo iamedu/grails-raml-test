@@ -22,18 +22,18 @@ class AuthorizationLoginService {
     ])
   }
 
-  def handleInvalidUsername(UnknownAccountException ex) {
-    RamlResponse.create().statusCode(403).body([
-      error: 'invalidUsername',
-      message: ex.message
-    ])
-  }
-
-  def handleInvalidPassword(IncorrectCredentialsException ex) {
-    RamlResponse.create().statusCode(403).body([
-      error: 'invalidPassword',
-      message: ex.message
-    ])
-  }
+  // def handleInvalidUsername(UnknownAccountException ex) {
+  //   RamlResponse.create().statusCode(403).body([
+  //     error: 'invalidUsername',
+  //     message: ex.message
+  //   ])
+  // }
+  //
+  // def handleInvalidPassword(IncorrectCredentialsException ex) {
+  //   RamlResponse.create().statusCode(403).body([
+  //     error: 'invalidPassword',
+  //     message: ex.message
+  //   ])
+  // }
 
 }
