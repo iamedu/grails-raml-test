@@ -7,7 +7,7 @@ import iamedu.raml.http.RamlParam
 @Transactional
 class AlbumService {
 
-  RamlResponse get(@RamlParam(value="albumId") String albumId) {
-    RamlResponse.create().body([id:albumId])
-  }
+  // RamlResponse get(@RamlParam(value="albumId") String albumId) {
+  //   RamlResponse.create().body([id:albumId])
+  // }
 }

@@ -118,3 +118,5 @@ log4j.main = {
 
 iamedu.raml.ramlDefinition = 'jukebox-api.raml'
 iamedu.raml.reload = true
+iamedu.raml.strictMode = true
+iamedu.raml.serveExamples = true
