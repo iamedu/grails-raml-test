@@ -14,6 +14,7 @@ resourceTypes:
   - readOnlyCollection:
       description: Collection of available <<resourcePathName>> in Jukebox.
       get:
+        is: [secured]
         description: Get a list of <<resourcePathName>>.
         responses:
           200:
@@ -24,6 +25,7 @@ resourceTypes:
   - collection:
       description: Collection of available <<resourcePathName>> in Jukebox.
       get:
+        is: [secured]
         description: Get a list of <<resourcePathName>>.
         responses:
           200:
@@ -32,6 +34,7 @@ resourceTypes:
                 example: |
                   <<exampleCollection>>
       post:
+        is: [secured]
         description: | 
           Add a new <<resourcePathName|!singularize>> to Jukebox.
         queryParameters:
@@ -54,6 +57,7 @@ resourceTypes:
   - collection-item:
       description: Entity representing a <<resourcePathName|!singularize>>
       get:
+        is: [secured]
         description: |
           Get the <<resourcePathName|!singularize>>
           with <<resourcePathName|!singularize>>Id =
@@ -70,6 +74,11 @@ resourceTypes:
                 example: |
                   {"message": "<<resourcePathName|!singularize>> not found" }
 traits:
+  - secured:
+      headers:
+        X-Auth-Token:
+          displayName: Authorization token
+          required: true
   - searchable:
       queryParameters:
         query:
@@ -114,7 +123,8 @@ traits:
     is: [
           searchable: {description: "with valid searchable fields: songTitle", example: "[\"songTitle\", \"Get L\", \"like\"]"},
           orderable: {fieldsList: "songTitle"},
-          pageable
+          pageable,
+          secured
         ]
   /{songId}:
     displayName: Song
@@ -125,12 +135,14 @@ traits:
       displayName: Song File Content
       description: The file to be reproduced by the client
       get:
+        is: [secured]
         description: Get the file content
         responses:
           200:
             body:
               binary/octet-stream:
       post:
+        is: [secured]
         description: |
            Enters the file content for an existing song entity.
 
@@ -157,7 +169,8 @@ traits:
     is: [
           searchable: {description: "with valid searchable fields: countryCode", example: "[\"countryCode\", \"FRA\", \"equals\"]"},
           orderable: {fieldsList: "artistName, nationality"},
-          pageable
+          pageable,
+          secured
         ]
   /{artistId}:
     displayName: Artist
@@ -172,7 +185,7 @@ traits:
       description: Collection of albulms belonging to the artist
       get:
         description: Get a specific artist's albums list
-        is: [orderable: {fieldsList: "albumName"}, pageable]
+        is: [orderable: {fieldsList: "albumName"}, pageable, secured]
 
 /albums:
   displayName: Albums
@@ -184,7 +197,8 @@ traits:
     is: [
           searchable: {description: "with valid searchable fields: genreCode", example: "[\"genreCode\", \"ELE\", \"equals\"]"},
           orderable: {fieldsList: "albumName, genre"},
-          pageable
+          pageable,
+          secured
         ]
   /{albumId}:
     displayName: Album
@@ -197,7 +211,7 @@ traits:
         readOnlyCollection:
           exampleCollection: !include jukebox-include-album-songs.sample
       get:
-        is: [orderable: {fieldsList: "songTitle"}]
+        is: [orderable: {fieldsList: "songTitle"}, secured]
         description: Get the list of songs for the album with `albumId = {albumId}`
 
 /auth:
