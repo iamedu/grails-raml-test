@@ -117,4 +117,4 @@ log4j.main = {
 }
 
 iamedu.raml.ramlDefinition = 'jukebox-api.raml'
-iamedu.raml.reload = false
+iamedu.raml.reload = true
